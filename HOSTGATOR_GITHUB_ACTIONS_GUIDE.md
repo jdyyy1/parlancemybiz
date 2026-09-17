@@ -127,3 +127,4 @@ To ensure none of the old Joomla files linger on the server:
 - **Workflow fails with "FTPS connection timed out"**: Verify `FTP_SERVER` is set to `gator4095.hostgator.com` and that port 21 is open.
 - **Workflow fails with "Login incorrect"**: Check for trailing spaces when copying the password into GitHub Secrets.
 - **Changes not showing immediately on the website**: Clear your browser cache or perform a hard refresh (`Ctrl + F5` or `Cmd + Shift + R`).
+
