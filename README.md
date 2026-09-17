@@ -20,7 +20,7 @@ To link this directory to your new GitHub repository:
 ```bash
 # 1. Create a new repository on GitHub (e.g. jdyyy1/parlancemybiz)
 # 2. Link your local repo to GitHub:
-git remote add origin https://github.com/YOUR_USERNAME/parlancemybiz.git
+git remote add origin https://github.com/jdyyy1/parlancemybiz.git
 
 # 3. Push to GitHub:
 git branch -M main
