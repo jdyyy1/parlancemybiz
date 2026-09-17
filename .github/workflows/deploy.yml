@@ -19,7 +19,7 @@ jobs:
       - name: 🚚 Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: 🚀 Sync Files to HostGator via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -27,8 +27,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # The FTP account parlancemybizftp@parlancemybiz.com.ph is already locked to /public_html
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
+          local-dir: ./
+          # Using ./ targets the root directory of the FTP account (public_html)
+          server-dir: ./
           protocol: ftps
           port: 21
           security: loose
