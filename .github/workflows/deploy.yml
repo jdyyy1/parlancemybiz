@@ -27,8 +27,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Primary domain document root in HostGator is public_html/
-          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/' }}
+          # The FTP account parlancemybizftp@parlancemybiz.com.ph is already locked to /public_html
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
           protocol: ftps
           port: 21
           security: loose
@@ -41,10 +41,3 @@ jobs:
             *.md
             *.sql
             *.log
-            administrator/**
-            components/**
-            modules/**
-            plugins/**
-            templates/**
-            libraries/**
-            includes/**
