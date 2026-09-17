@@ -1,0 +1,38 @@
+# Dependencies & Environment
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Legacy Joomla CMS files & directories (Not part of modernized static site)
+administrator/
+bin/
+cli/
+components/
+includes/
+language/
+layouts/
+libraries/
+logs/
+media/
+modules/
+plugins/
+templates/
+tmp/
+cgi-bin/
+assests/
+cache/
+configuration.php
+*.sql
+*.log
+error_log
+*.json.bak
+*.php.json
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+.idea/
+.vscode/

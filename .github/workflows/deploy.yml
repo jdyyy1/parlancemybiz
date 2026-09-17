@@ -1,0 +1,50 @@
+name: Deploy parlancemybiz.com.ph to HostGator (public_html)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-parlancemybiz
+  cancel-in-progress: false
+
+jobs:
+  web-deploy:
+    name: Deploy to HostGator public_html
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 🚀 Sync Files to HostGator via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Primary domain document root in HostGator is public_html/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/' }}
+          protocol: ftps
+          port: 21
+          security: loose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            README.md
+            *.md
+            *.sql
+            *.log
+            administrator/**
+            components/**
+            modules/**
+            plugins/**
+            templates/**
+            libraries/**
+            includes/**
